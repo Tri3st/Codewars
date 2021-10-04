@@ -1,5 +1,5 @@
 #The Kata file for modules
-
+import re
 
 def even_or_odd(number):
     return "Even" if number%2==0 else "Odd"
@@ -31,5 +31,12 @@ def solution(string,markers):
 
 
 def connotation(strng):
+    positive = negative = 0
+    str2 = re.split(r"[\s]+", strng)
 
-  return True
+    for s in str2:
+        if ord(s[0].lower()) < 110:
+            positive += 1
+        else:
+            negative += 1
+    return positive >= negative
