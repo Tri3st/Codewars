@@ -40,3 +40,12 @@ def connotation(strng):
         else:
             negative += 1
     return positive >= negative
+
+
+def decode_pass(pass_list, bits):
+    for passw in pass_list:
+        temp = ' '.join(format(ord(c), '08b') for c in passw)
+        if temp == bits:
+            return passw
+    return False
+
